@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+// Show product discount with alert
+/*
+Ex. Input: 
+let products = [
+    { id: 1, name: 'Asus', price: 20000000, discount: 0 },
+    { id: 2, name: 'Lenovo', price: 15000000, discount: 10 },
+    { id: 3, name: 'Acer', price: 10000000, discount: 30 }
+]
+
+Output :
+
+*** Welcome Admin ***
+1. Asus: Rp. 20.000.000
+2. Lenovo: Rp. 15.000.000 (10%) = Rp. 13.500.000
+3. Acer: Rp. 10.000.000 (30%) = Rp. 7.000.000
+*/
+
+    const products = [
+        {id: 1, name: 'Asus', price: 20000000, discount: 0 },
+        {id: 2, name: 'Lenovo', price: 10000000, discount: 10 },
+        {id: 3, name: 'Alienwear', price: 15000000, discount: 30 }
+    ]
+
+    function ShowDiscount(Prod){
+
+      let printOut = ` Welcome to Miq.bal GamingShop  \n`
+
+      for(let item of Prod){
+        printOut += `${item.id}. ${item.name} = Rp. ${item.price.toLocaleString('id-ID')} \n`
+        if(item.discount > 0){
+          printOut += `= ${item.price - (item.price * (item.discount / 100))} \n`
+        }else{
+          printOut += `\n`
+        }
+      }
+
+      alert(printOut)
+    }
+    
+    ShowDiscount(products)
+
+  </script>
+  
+</body>
+</html>

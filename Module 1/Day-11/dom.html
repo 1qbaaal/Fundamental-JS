@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  // Document Object Model (DOM) --> Manipulasi DOM, --> Supaya halaman web terilhat dinamis dan stasis 
+  
+  <h1>
+    Hello, Wolrd!
+  </h1>
+  <h1>
+    Hello, Wolrd!
+  </h1>
+  <h1>
+    Hello, Wolrd!
+  </h1>
+
+  <h1 id='ShowData'></h1>
+  <input type="text" id="username" placeholder="Enter Your username" />
+  <input type="password" id="password" placeholder="Enter Your Password" />
+
+  <button onclick = "Bebas()"> Submit </button>
+
+</body>
+<script>
+  const totalH1 = document.getElementsByTagName('h1').length;
+
+  for(let i =0; i < totalH1; i++){
+    document.getElementsByTagName('h1')[i].innerHTML = 'Welcome to Paradise!'
+  }
+
+  function Bebas(){
+    let username = document.getElementById('username').value
+    let password = document.getElementById('password').value
+    document.getElementById('ShowData').innerHTML = username
+
+    console.log(username)
+    console.log(password)
+  }
+  
+</script>
+</html>

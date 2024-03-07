@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class User {
+            username = '';
+            email = '';
+            #password = '';
+            age = ''
+
+            constructor(username, email, password) {
+                this.username = username;
+                this.email = email;
+                this.#password = password;
+                this.age = age;
+            }
+
+            set ageConvert(age) {
+                let ageInMs = new Date(age).getTime()
+                let nowInMs = new Date().getTime()
+
+                let umur = (nowInMs / 1000 * 24 * 3600 * 365) - (ageInMs / 1000 * 24 * 3600 * 365)
+
+                this.age = umur
+            }
+
+            get newPassword() {
+                return `*** ${this.#password.slice(3, this.#password.length)}`
+            }
+        }
+
+        const username = prompt('Input Your Username')
+        const email = prompt('Input Your Email')
+        const password = prompt('Input Your Password')
+        const age = prompt('Input Your Birthday(Ex. 1999-04-02)')
+
+        const Register = new User(username, email, password)
+
+        Register.ageConvert = age
+
+        alert(`
+        Username: ${Register.username} \n
+        Email: ${Register.email} \n
+        Password: ${Register.newPassword} \n
+        Age: ${Register.age}
+    `)
+
+    </script>
+
+</body>
+
+</html>

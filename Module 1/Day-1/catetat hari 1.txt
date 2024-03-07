@@ -1,0 +1,10 @@
+var : memungkinkan value dengan nama yang sama
+let : value bisa sama namun variablenya tidak boleh sama
+const : value dan variable nya tidak boleh sama
+
+== : mengecek value nya saja tanpa type data
+=== : mengecek value dan type datanya
+!= : tidak sama dengan (mengacu pada ==)
+!== : tidak sama dengan (mengacu pada ===)
+
+newDate : untuk mecari milisecond hari

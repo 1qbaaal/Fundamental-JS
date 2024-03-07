@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Player {
+    constructor(name, health = 100, power = 10) {
+        this.name = name;
+        this.health = health;
+        this.power = power;
+    }
+
+    Hit(power) { // --> actually this is got HIT
+        this.health -= power;
+    }
+
+    UseItem(item) { // --> { health: 10, power: 0 }
+        this.health += item.health; // --> 10
+        this.power += item.power; // --> 0
+    }
+
+    ShowStatus() {
+        return `Player ${this.name} (Health => ${this.health}, Power => ${this.power})`
+    }
+}
+
+const playerBarent = new Player("Barent");
+const playerLimita = new Player("Gee")
+
+class ShootingGame {
+    constructor(player1, player2) {
+        this.player1 = player1;
+        this.player2 = player2;
+    }
+
+    GetRandomItem() {
+        if (Math.random() > 0.495) {
+            return { health: 0, power: 10 }
+        } else {
+            return { health: 10, power: 0 }
+        }
+    }
+
+    Start() {
+        let randomItem = 0;
+        let currentPlayer;
+        let enemyPlayer;
+        if (Math.random() > 0.495) {
+            currentPlayer = this.player1;
+            enemyPlayer = this.player2;
+        } else {
+            currentPlayer = this.player2;
+            enemyPlayer = this.player1;
+        }
+
+        while (true) {
+            alert(`${this.player1.ShowStatus()}\n\n${this.player2.ShowStatus()}`)
+
+            randomItem = this.GetRandomItem();
+
+            const option = Number(prompt(`${currentPlayer["name"].toUpperCase()}'s turn\n1. HIT\n2. USE ITEM (Health : +${randomItem["health"]}, Power : +${randomItem["power"]})`))
+
+            if (option == 1) { // --> gameplay option's acts
+                enemyPlayer.Hit(currentPlayer.power);
+            } else if (option == 2) {
+                currentPlayer.UseItem(randomItem)
+            } else {
+                alert(`Please type the right input! (1. HIT or 2. USE ITEM)`);
+                continue;
+            }
+
+            if (currentPlayer == this.player1) { // --> to show which order to play
+                currentPlayer = this.player2;
+                enemyPlayer = this.player1;
+            } else {
+                currentPlayer = this.player1;
+                enemyPlayer = this.player2;
+            }
+
+            if (this.player1["health"] <= 0) { // --> condition if one of them is 0 health
+                return `The winner is ${this.player2["name"].toUpperCase()}, ${this.player1["name"]}'s Health is 0`
+            } else if (this.player2["health"] <= 0) {
+                return `The winner is ${this.player1["name"].toUpperCase()}, ${this.player2["name"]}'s Health is 0`
+            }
+        }
+    }
+}
+
+const game = new ShootingGame(playerBarent, playerLimita);
+alert(game.Start());
+  </script>
+  
+</body>
+</html>

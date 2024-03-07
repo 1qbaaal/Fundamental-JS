@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <img src="c:\Users\USER\Downloads\Cicada 3301 — Wikipédia.jpg" title="WELCOME TO CICADA 3301" style="width: 1000px;height: 1000px ;" />
+  <h1> WELCOME TO CICADA3301 </h1>
+  <h1 id="ShowData"> </h1>
+  <h1 id="ShowPass"></h1>
+  <input type="text" id="username" placeholder="Enter Your username" />
+  <input type="password" id="password" placeholder="Enter Your Password" />
+
+  <button onclick="Click()"> Submit </button>
+  <script>
+    const totalH1 = document.getElementsByTagName('h1').length;
+
+    function Click() {
+      let username = document.getElementById('username').value
+      let password = document.getElementById('password').value
+      if (password.length < 6) {
+        alert('Gabisa Daftar Lu, Minimal 6 huruf!')
+      } else {
+        document.getElementById('ShowData').innerHTML = username
+        document.getElementById('ShowPass').innerHTML = password.slice(0, 2) + '**'
+      }
+
+
+    }
+
+
+
+    console.log(username)
+    console.log(password)
+
+  </script>
+</body>
+
+</html>

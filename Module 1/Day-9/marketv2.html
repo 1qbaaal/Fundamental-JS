@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+let menu = prompt('Menu \n 1. Select Product');
+let 
+
+class Products{
+        id=0;
+        name='';
+        price='';
+
+        constructor(id, name, price){
+            this.id = id;
+            this.name = name;
+            this.price = price;
+        }
+    }
+
+    const products = [
+        new Products(1, 'Apel', 10000), 
+        new Products(2, 'Jeruk', 15000), 
+  ]
+
+  class Transaction{
+    totalItem = 0;
+    keranjang =[];
+
+    showProducts(arrProducts){
+      let printOut = ''
+
+      for(let item of arrProducts){
+        printOut += `${item.id}. ${item.name} = Rp. ${item.price} \n`
+      }
+
+      const selectedProduct = Number(prompt(printOut))
+      const quantity = Number(prompt('Input Qty'))
+
+      this.addToKeranjang(arrProducts, selectedProduct, quantity)
+    }
+
+    addToKeranjang(arrProducts, selectedProduct, quantity){
+      this.keranjang.push({...arrProducts[selectedProduct-1], quantity})
+      
+    }
+  }
+
+
+
+  </script>
+  
+</body>
+</html>

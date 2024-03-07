@@ -1,0 +1,12 @@
+{
+  "student" : [
+    {
+      "name": "Jaung",
+      "hobby": "Judol"
+    },
+    {
+      "name": "Tsubasa",
+      "Hobby":" Maen Bola"
+    }
+  ]
+}

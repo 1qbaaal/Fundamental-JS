@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    const input1 = prompt('Input Your First Number') // atau bisa juga langsung diubah menjadi number tanpa parseInt > number(prompt)
+    const input2 = prompt('Input Your Second Number')
+    const input3 = prompt('Select Operation: +, -, /, *')
+   if(input3 == '+'){
+    alert(parseInt(input1) + parseInt(input2))
+   }else if(input3 == '-'){
+    alert(parseInt(input1) - parseInt(input2))
+   }else if(input3 == '/'){
+    alert(parseInt(input1) / parseInt(input2))
+   }else if(input3 == '*'){
+    alert(parseInt(input1) * parseInt(input2))
+   }else{
+    alert('Not Found!')
+   }
+   alert('Bener Nih')
+</script>
+</html>
